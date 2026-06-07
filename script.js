@@ -1,3 +1,24 @@
+// Hamburger menu
+const hamburger = document.getElementById('navHamburger');
+const navLinks = document.getElementById('navLinks');
+
+if (hamburger && navLinks) {
+  hamburger.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
+  });
+
+  // Close menu when a nav link is clicked
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
+
 // Scroll progress bar
   window.addEventListener('scroll', () => {
     const el = document.getElementById('scrollLine');
@@ -116,7 +137,7 @@ function closeProject() {
   clearProjPositions();
 }
 
-if (projStage) {
+if (projStage && window.innerWidth > 768) {
   projStage.addEventListener('click', (e) => {
     const item = e.target.closest('.proj-item');
     if (projStage.classList.contains('has-open')) {
