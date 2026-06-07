@@ -936,23 +936,53 @@
       .exp-date { display: none; }
       .exp-card:hover { transform: none; }
 
-      /* Projects — flat card list on mobile */
-      .proj-stage { min-height: 0 !important; display: flex; flex-direction: column; gap: 14px; }
+      /* Projects — collapsible cards on mobile */
+      .proj-stage { min-height: 0 !important; display: flex; flex-direction: column; gap: 10px; }
       .proj-item {
         position: static !important;
         width: 100% !important;
         left: auto !important; right: auto !important; top: auto !important;
         transform: none !important;
         opacity: 1 !important;
-        cursor: default;
+        cursor: pointer;
       }
-      .proj-item-body { display: block !important; animation: none !important; }
-      .proj-item-title { font-size: 1.1rem !important; margin-bottom: 0.75rem !important; }
-      .proj-stage.has-open .proj-item.open .proj-item-title { font-size: 1.1rem; }
+      .proj-item-body { display: none !important; animation: none !important; }
+      .proj-item.mobile-open .proj-item-body { display: block !important; }
+      .proj-item-title {
+        font-size: 1rem !important;
+        margin-bottom: 0 !important;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .proj-item-title::after {
+        content: '+';
+        font-family: 'DM Sans', sans-serif;
+        font-size: 1.3rem;
+        color: var(--orchid);
+        flex-shrink: 0;
+        transition: transform 0.25s ease;
+      }
+      .proj-item.mobile-open .proj-item-title { margin-bottom: 0.75rem !important; }
+      .proj-item.mobile-open .proj-item-title::after { transform: rotate(45deg); }
       .proj-hint { display: none; }
 
-      /* Skills */
+      /* Skills — collapsible groups on mobile */
       .skills-grid { column-width: 100%; column-count: 1; }
+      .skill-group { cursor: pointer; }
+      .skill-group h3 { display: flex; justify-content: space-between; align-items: center; }
+      .skill-group h3::after {
+        content: '+';
+        font-family: 'DM Sans', sans-serif;
+        font-size: 1.2rem;
+        color: var(--orchid);
+        flex-shrink: 0;
+        transition: transform 0.25s ease;
+      }
+      .skill-group .skill-tags { display: none; }
+      .skill-group.mobile-open .skill-tags { display: flex; }
+      .skill-group.mobile-open h3::after { transform: rotate(45deg); }
 
       /* Contact */
       .contact-inner { flex-direction: column; gap: 2rem; text-align: center; }

@@ -137,6 +137,27 @@ function closeProject() {
   clearProjPositions();
 }
 
+// Mobile accordion — projects & skills
+function isMobile() { return window.innerWidth <= 768; }
+
+if (projStage) {
+  projStage.addEventListener('click', (e) => {
+    if (!isMobile()) return;
+    const item = e.target.closest('.proj-item');
+    if (!item) return;
+    const isOpen = item.classList.toggle('mobile-open');
+    // close others
+    projItems.forEach(it => { if (it !== item) it.classList.remove('mobile-open'); });
+  });
+}
+
+document.querySelectorAll('.skill-group').forEach(group => {
+  group.addEventListener('click', () => {
+    if (!isMobile()) return;
+    group.classList.toggle('mobile-open');
+  });
+});
+
 if (projStage && window.innerWidth > 768) {
   projStage.addEventListener('click', (e) => {
     const item = e.target.closest('.proj-item');
