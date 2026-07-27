@@ -393,6 +393,12 @@
       font-weight: 500;
       margin-top: 4px;
     }
+    .stat-industries {
+      font-size: 0.7rem;
+      color: #aaa;
+      margin-top: 6px;
+      line-height: 1.5;
+    }
 
     /* ── EDUCATION ── */
     #education { background: var(--sorbet); }
@@ -1075,6 +1081,7 @@
     [data-theme="dark"] .stat-card:hover { border-color: #DA4167; }
     [data-theme="dark"] .stat-card .num { color: #DA4167; }
     [data-theme="dark"] .stat-card .label { color: #a98e96; }
+    [data-theme="dark"] .stat-industries { color: #7a6070; }
 
     /* Education */
     [data-theme="dark"] .edu-card { background: #1c4e51; }

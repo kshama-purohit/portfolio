@@ -177,4 +177,4 @@ if (projStage && window.innerWidth > 768) {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && projStage.classList.contains('has-open')) closeProject();
   });
-}
+}     
